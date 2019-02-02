@@ -2,15 +2,15 @@ package View;
 
 public class Output {
 	public void multiply_Result(String result) {
-		System.out.println("> °ö¼ÀÀÇ °á°ú°ªÀº ´ÙÀ½°ú °°½À´Ï´Ù. ");
+		System.out.println("> ê³±ì…ˆì˜ ê²°ê³¼ê°’ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤. ");
 		System.out.println(result);
 		return ;
 	}
-	
+
 	public void division_Result(String result_Round , String result_Remainder) {
-		System.out.println("> ³ª´°¼ÀÀÇ °á°ú°ªÀº ´ÙÀ½°ú °°½À´Ï´Ù.");
-		System.out.println("> ³ª´°¼ÀÀÇ ¸ò : " + result_Round);
-		System.out.println("> ³ª´°¼ÀÀÇ ³ª¸ÓÁö : " + result_Remainder);
+		System.out.println("> ë‚˜ëˆ—ì…ˆì˜ ê²°ê³¼ê°’ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.");
+		System.out.println("> ë‚˜ëˆ—ì…ˆì˜ ëª« : " + result_Round);
+		System.out.println("> ë‚˜ëˆ—ì…ˆì˜ ë‚˜ë¨¸ì§€ : " + result_Remainder);
 		return ;
 	}
 }

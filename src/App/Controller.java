@@ -23,17 +23,17 @@ public class Controller {
 	}
 
 	public void execute() {
-		String cmd = new String(); // Command¸¦ ÀÔ·Â¹ŞÀ» º¯¼ö
-		String variable_1 = new String(); // Multiply and Division½Ã
+		String cmd = new String(); // Commandë¥¼ ì…ë ¥ë°›ì„ ë³€ìˆ˜
+		String variable_1 = new String(); // Multiply and Divisionì‹œ
 		String variable_2 = new String();
 		Input input_Variables = new Input();
 		Output output_Result = new Output();
-		
-		System.out.println("===== BIGINT °è»ê±â¸¦ ½ÇÇàÇÕ´Ï´Ù. =====");
-		
+
+		System.out.println("===== BIGINT ê³„ì‚°ê¸°ë¥¼ ì‹¤í–‰í•©ë‹ˆë‹¤. =====");
+
 		while (true) {
-			
-			System.out.println("> ½ÇÇàÇÒ ¿¬»êÀ» ¼±ÅÃÇÏ¼¼¿ä : [1] : °ö¼À , [2] : ³ª´°¼À  , [-1] : Á¾·á");
+
+			System.out.println("> ì‹¤í–‰í•  ì—°ì‚°ì„ ì„ íƒí•˜ì„¸ìš” : [1] : ê³±ì…ˆ , [2] : ë‚˜ëˆ—ì…ˆ  , [-1] : ì¢…ë£Œ");
 			cmd = sc.next();
 			sc.nextLine();
 			switch (cmd) {
@@ -43,20 +43,20 @@ public class Controller {
 				String result_Of_multiply_One = operation.multiply(recieve_Input_Multiplicand, recieve_Input_Multiplier);
 
 				if (result_Of_multiply_One == null) {
-					System.out.println("[Error] ¿À·ù ¹ß»ıÀ¸·Î ÀÎÇÏ¿© ÇÁ·Î±×·¥ÀÌ Á¾·áµË´Ï´Ù.");
-					break; // ¿À·ù(¿¹¿ÜÃ³¸®)½Ã ÇØ´ç ¸í·ÉÁ¾·á
+					System.out.println("[Error] ì˜¤ë¥˜ ë°œìƒìœ¼ë¡œ ì¸í•˜ì—¬ í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë©ë‹ˆë‹¤.");
+					break; // ì˜¤ë¥˜(ì˜ˆì™¸ì²˜ë¦¬)ì‹œ í•´ë‹¹ ëª…ë ¹ì¢…ë£Œ
 				}
 
-				output_Result.multiply_Result(result_Of_multiply_One); // °á°ú Ãâ·ÂÇÔ¼ö
+				output_Result.multiply_Result(result_Of_multiply_One); // ê²°ê³¼ ì¶œë ¥í•¨ìˆ˜
 
 				break;
 			case "2" :
 				break;
 			case "-1" :
-				System.out.println("===== BigInt °è»ê±â¸¦ Á¾·áÇÕ´Ï´Ù. =====");
+				System.out.println("===== BigInt ê³„ì‚°ê¸°ë¥¼ ì¢…ë£Œí•©ë‹ˆë‹¤. =====");
 				return ;
 			default:
-				System.out.println("[Error] Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+				System.out.println("[Error] ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
 				break;
 			}
 		}

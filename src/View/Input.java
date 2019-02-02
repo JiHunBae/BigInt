@@ -1,27 +1,27 @@
 package View;
 import java.util.Scanner;
 
-public class Input {	
+public class Input {
 	Scanner input_sc = new Scanner(System.in);
 
 	public String get_Multiply_Multiplicand() {
-		// ÇÇ½Â¼ö¸¦ ÀÔ·Â¹Ş¾Æ ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+		// í”¼ìŠ¹ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 		// TODO Auto-generated method stub
-		String multiplicand_Of_Multiply = new String(); // ÇÇ½Â¼ö(multiplicand)
-		System.out.println("> Ã¹ ¹øÂ° ¼ö(ÇÇ½Â¼ö)¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+		String multiplicand_Of_Multiply = new String(); // í”¼ìŠ¹ìˆ˜(multiplicand)
+		System.out.println("> ì²« ë²ˆì§¸ ìˆ˜(í”¼ìŠ¹ìˆ˜)ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 		multiplicand_Of_Multiply = input_sc.next();
-		input_sc.nextLine(); // bufferºñ¿ì±â
-		
+		input_sc.nextLine(); // bufferë¹„ìš°ê¸°
+
 		return multiplicand_Of_Multiply; // multiplicand
 	}
-	
+
 	public String get_Multiply_Multiplier() {
-		// ½Â¼ö¸¦ ÀÔ·Â¹Ş¾Æ ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
-		String multiplier_Of_Multiply = new String(); // ½Â¼ö(multiplier)
-		System.out.println("> µÎ ¹øÂ° ¼ö(½Â¼ö)¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+		// ìŠ¹ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
+		String multiplier_Of_Multiply = new String(); // ìŠ¹ìˆ˜(multiplier)
+		System.out.println("> ë‘ ë²ˆì§¸ ìˆ˜(ìŠ¹ìˆ˜)ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 		multiplier_Of_Multiply = input_sc.next();
-		input_sc.nextLine(); // buffer ºñ¿ì±â
-		
+		input_sc.nextLine(); // buffer ë¹„ìš°ê¸°
+
 		return multiplier_Of_Multiply; // multiplier
 	}
 

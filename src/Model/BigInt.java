@@ -6,69 +6,69 @@ import org.omg.CORBA.DynAnyPackage.TypeMismatch;
 
 public class BigInt {
 	protected Entry entry = new Entry();
-	private static boolean check_Init = false; 
-	// BigInt(String string)½Ã string¹®ÀÚ¿­ÀÌ »ó¼öÀÇ Á¶ÇÕÀ¸·Î¸¸ ÀÌ·ç¾îÁø °æ¿ì true·Î º¯È¯, ±×·¸Áö¾ÊÀ¸¸é falseÀ¯Áö
+	private static boolean check_Init = false;
+	// BigInt(String string)ì‹œ stringë¬¸ìì—´ì´ ìƒìˆ˜ì˜ ì¡°í•©ìœ¼ë¡œë§Œ ì´ë£¨ì–´ì§„ ê²½ìš° trueë¡œ ë³€í™˜, ê·¸ë ‡ì§€ì•Šìœ¼ë©´ falseìœ ì§€
 
 	protected BigInt() {
 	}
 
 /*	protected BigInt(String string_Number) {
-		String[] line_Split = string_Number.split(""); // Parameter string_Number¸¦ splitÀ» ÀÌ¿ëÇØ ¹è¿­·Î ³ª´®
-		int length_Of_String = line_Split.length; // line_Split ¹è¿­ÀÇ ±æÀÌ == string_Number ¹®ÀÚ¿­ÀÇ ±æÀÌ
-		Stack<String> stack = new Stack(); // String°´Ã¼¸¦ ´ãÀ» Stack
+		String[] line_Split = string_Number.split(""); // Parameter string_Numberë¥¼ splitì„ ì´ìš©í•´ ë°°ì—´ë¡œ ë‚˜ëˆ”
+		int length_Of_String = line_Split.length; // line_Split ë°°ì—´ì˜ ê¸¸ì´ == string_Number ë¬¸ìì—´ì˜ ê¸¸ì´
+		Stack<String> stack = new Stack(); // Stringê°ì²´ë¥¼ ë‹´ì„ Stack
 
 		try {
-			// stack¿¡ String°´Ã¼ push
+			// stackì— Stringê°ì²´ push
 			for (int index = 0; index < length_Of_String; ++index) {
 				stack.push(line_Split[index]);
 				int check_Integer = Integer.parseInt(line_Split[index]);
-				// stringÀÌ Á¤¼öÀÎÁö ¾Æ´ÑÁö Ã¼Å©ÇÏ±â À§ÇÑ º¯È¯ °úÁ¤, Á¤¼ö°¡ ¾Æ´Ò½Ã ¿À·ù
+				// stringì´ ì •ìˆ˜ì¸ì§€ ì•„ë‹Œì§€ ì²´í¬í•˜ê¸° ìœ„í•œ ë³€í™˜ ê³¼ì •, ì •ìˆ˜ê°€ ì•„ë‹ì‹œ ì˜¤ë¥˜
 			}
 			this.entry.setNumber(stack.pop());
 
 			while (!stack.isEmpty()) {
-				Entry number_Input_Temp = this.entry; // String InputÀ» À§ÇÑ temp º¯¼ö
+				Entry number_Input_Temp = this.entry; // String Inputì„ ìœ„í•œ temp ë³€ìˆ˜
 
 				for (; number_Input_Temp.getNext() != null; number_Input_Temp = number_Input_Temp.getNext());
-				
+
 				number_Input_Temp.setNext(new Entry());
 				number_Input_Temp.getNext().setNumber(stack.pop());
 			}
-			
+
 			check_Init = true;
-			
+
 		} catch (IllegalArgumentException e) {
-			// ¼ıÀÚ°¡ ¾Æ´Ñ °ªÀÌ ¹®ÀÚ¿­¿¡ ÀÔ·ÂµÈ °æ¿ì Çüº¯È¯¿¡¼­ Error°¡ ¹ß»ıÇÏ´Âµ¥ ÀÌ·¯ÇÑ °æ¿ì ¿¹¿ÜÃ³¸® ¹× Ãâ·Â¹®
-			System.out.println("[Error] ¿¹¿ÜÃ³¸® ¹ß»ı - ÀÔ·ÂµÈ ¼ö°¡ Á¤¼ö°¡ ¾Æ´Ñ ¹®ÀÚ°¡ Á¸ÀçÇÕ´Ï´Ù.");
+			// ìˆ«ìê°€ ì•„ë‹Œ ê°’ì´ ë¬¸ìì—´ì— ì…ë ¥ëœ ê²½ìš° í˜•ë³€í™˜ì—ì„œ Errorê°€ ë°œìƒí•˜ëŠ”ë° ì´ëŸ¬í•œ ê²½ìš° ì˜ˆì™¸ì²˜ë¦¬ ë° ì¶œë ¥ë¬¸
+			System.out.println("[Error] ì˜ˆì™¸ì²˜ë¦¬ ë°œìƒ - ì…ë ¥ëœ ìˆ˜ê°€ ì •ìˆ˜ê°€ ì•„ë‹Œ ë¬¸ìê°€ ì¡´ì¬í•©ë‹ˆë‹¤.");
 		}
 	}
 */
 	protected BigInt(String string_Number) {
-		String[] line_Split = string_Number.split(""); // Parameter string_Number¸¦ splitÀ» ÀÌ¿ëÇØ ¹è¿­·Î ³ª´®
-		int length_Of_String = line_Split.length; // line_Split ¹è¿­ÀÇ ±æÀÌ == string_Number ¹®ÀÚ¿­ÀÇ ±æÀÌ
-		//Stack<String> stack = new Stack(); // String°´Ã¼¸¦ ´ãÀ» Stack
+		String[] line_Split = string_Number.split(""); // Parameter string_Numberë¥¼ splitì„ ì´ìš©í•´ ë°°ì—´ë¡œ ë‚˜ëˆ”
+		int length_Of_String = line_Split.length; // line_Split ë°°ì—´ì˜ ê¸¸ì´ == string_Number ë¬¸ìì—´ì˜ ê¸¸ì´
+		//Stack<String> stack = new Stack(); // Stringê°ì²´ë¥¼ ë‹´ì„ Stack
 		Entry init_Temp = this.entry;
 		try {
 			for(int index = length_Of_String - 1; 0 <= index ; --index) {
-				int check_Integer = Integer.parseInt(line_Split[index]); // ÀÔ·ÂµÈ ¹®ÀÚ¿­ Áß Á¤¼ö°¡ ¾Æ´Ñ ¹®ÀÚ°¡ ÀÖ´ÂÁö ¿À·ù °ËÃâÀ» À§ÇÑ Çüº¯È¯
-				
-				// ¹®ÀÚ(»ó¼ö) ÇÏ³ª¸¦ ¿¬°á¸®½ºÆ®¿¡ ÀúÀå ÈÄ, ÀÔ·Â ¿¬°á¸®½ºÆ® ÀüÁø
+				int check_Integer = Integer.parseInt(line_Split[index]); // ì…ë ¥ëœ ë¬¸ìì—´ ì¤‘ ì •ìˆ˜ê°€ ì•„ë‹Œ ë¬¸ìê°€ ìˆëŠ”ì§€ ì˜¤ë¥˜ ê²€ì¶œì„ ìœ„í•œ í˜•ë³€í™˜
+
+				// ë¬¸ì(ìƒìˆ˜) í•˜ë‚˜ë¥¼ ì—°ê²°ë¦¬ìŠ¤íŠ¸ì— ì €ì¥ í›„, ì…ë ¥ ì—°ê²°ë¦¬ìŠ¤íŠ¸ ì „ì§„
 				init_Temp.setNumber(line_Split[index]);
 				init_Temp.setNext(new Entry());
 				init_Temp = init_Temp.getNext();
-			}			
+			}
 			check_Init = true;
 		}
 		catch (IllegalArgumentException e) {
-			// ¼ıÀÚ°¡ ¾Æ´Ñ °ªÀÌ ¹®ÀÚ¿­¿¡ ÀÔ·ÂµÈ °æ¿ì Çüº¯È¯¿¡¼­ Error°¡ ¹ß»ıÇÏ´Âµ¥ ÀÌ·¯ÇÑ °æ¿ì ¿¹¿ÜÃ³¸® ¹× Ãâ·Â¹®
-			System.out.println("[Error] ¿¹¿ÜÃ³¸® ¹ß»ı - ÀÔ·ÂµÈ ¼ö°¡ Á¤¼ö°¡ ¾Æ´Ñ ¹®ÀÚ°¡ Á¸ÀçÇÕ´Ï´Ù.");
+			// ìˆ«ìê°€ ì•„ë‹Œ ê°’ì´ ë¬¸ìì—´ì— ì…ë ¥ëœ ê²½ìš° í˜•ë³€í™˜ì—ì„œ Errorê°€ ë°œìƒí•˜ëŠ”ë° ì´ëŸ¬í•œ ê²½ìš° ì˜ˆì™¸ì²˜ë¦¬ ë° ì¶œë ¥ë¬¸
+			System.out.println("[Error] ì˜ˆì™¸ì²˜ë¦¬ ë°œìƒ - ì…ë ¥ëœ ìˆ˜ê°€ ì •ìˆ˜ê°€ ì•„ë‹Œ ë¬¸ìê°€ ì¡´ì¬í•©ë‹ˆë‹¤.");
 		}
 	}
-	
+
 	public static boolean isCheck_Init() {
 		return check_Init;
 	}
-	
+
 	public static void setCheck_Init(boolean check_Init) {
 		BigInt.check_Init = check_Init;
 	}

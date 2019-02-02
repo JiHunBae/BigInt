@@ -9,95 +9,108 @@ public class Operation extends BigInt {
 	BigInt bigint_First; // Multiplicand
 	BigInt bigint_Second; // Mutliplier
 	Input input_parameter = new Input(); // Object for getting Parameter (Input)
-	
+
 	public Operation() {}
-		
-	/*public String multiply_One(BigInt bigint_multiplicand, String multiplier_One_Digit_Value) {
-		BigInt multiplicand = bigint_multiplicand;	
-		
-		Stack<String> multiply_One_Stack = new Stack(); // Stack
-		String multiply_One_Result = new String(); // multiply_One ¹İÈ¯ °ª
-		Entry multiplicand_Entry = multiplicand.entry; // multiplicandÀÇ Entry
-		
-		int multiplicand_One_Digit = 0; // multiplicand¿¡¼­ ÇÑ ÀÚ¸®¿¡ ÇØ´çÇÏ´Â ¼ö
-		int multiplier_One_Digit = Integer.parseInt(multiplier_One_Digit_Value); // multiplier ÇÑ ÀÚ¸®¿¡ ÇØ´çÇÏ´Â ¼ö
-		int multiply_One_Digit_Result = 0; // multiplicand_One_Digit * multiplier_One_Digit
-		int multiply_One_Carry = 0; // multiply carry
-		int multiply_One_Value = 0; // multiply_One_Digit_Result - carry
-		
-		while(multiplicand_Entry != null) {
-			multiplicand_One_Digit = Integer.parseInt(multiplicand_Entry.getNumber()); // ÇÑ ÀÚ¸® ¹ŞÀ½
-			multiplicand_Entry = multiplicand_Entry.getNext(); // multiplicand_Entry ÇÑ Ä­ ÀüÁø
-			multiply_One_Digit_Result = multiplicand_One_Digit * multiplier_One_Digit; // µÎ ¼öÀÇ °ö
-			multiply_One_Value = multiply_One_Carry; // ÀÌÀü carry¸¦ value·Î ¿Å±è
-			multiply_One_Value += multiply_One_Digit_Result % 10; // °ö¼ÀÀÇ °á°ú°ª¿¡¼­ 1ÀÇ ÀÚ¸®¼ö¸¦ ´õÇØÁÜ
-			multiply_One_Carry = multiply_One_Digit_Result / 10 + (multiply_One_Value / 10);
-			// value°¡ carry¿ÍÀÇ µ¡¼ÀÀ» ÅëÇØ 10À» ³Ñ¾î°£ °æ¿ì¸¦ °í·ÁÇÏ¿© µÎ ¼öÀÇ °ö¿¡¼­ 10À» ³ª´« °ª°ú value¸¦ 10À¸·Î ³ª´« °ªÀ» ´õÇØÁÜ
-			multiply_One_Value %= 10; // value°¡ 10À» ³Ñ¾î°£ °æ¿ì 1ÀÇÀÚ¸®¸¸ ³²°Ô ÇØÁÜ
-			
-			multiply_One_Stack.push(Integer.toString(multiply_One_Value));
-		}
-		
-		if(multiply_One_Carry != 0) multiply_One_Stack.push(Integer.toString(multiply_One_Carry));
-		
-		while(!multiply_One_Stack.isEmpty()) {
-			multiply_One_Result += multiply_One_Stack.pop();
-		}
-		return multiply_One_Result;
-	}*/
-	
+
 	private Entry multiply_One(Entry multiplicand_Entry, String multiplier_One_Digit) {
 		Entry multiply_One_Return = new Entry();
-		
+
 		int multiplier_One_Digit_Integer = Integer.parseInt(multiplier_One_Digit);
-		int multiply_One_Carry = 0; // °ö¼À½Ã carry°ªÀ» ³ªÅ¸³¿
-		int multiply_One_Value = 0; // °ö¼À½Ã 1ÀÇÀÚ¸® °ªÀ» ³ªÅ¸³¿
+		int multiply_One_Carry = 0; // ê³±ì…ˆì‹œ carryê°’ì„ ë‚˜íƒ€ëƒ„
+		int multiply_One_Value = 0; // ê³±ì…ˆì‹œ 1ì˜ìë¦¬ ê°’ì„ ë‚˜íƒ€ëƒ„
 		Entry multiply_One_Temp = multiply_One_Return;
 		while (multiplicand_Entry != null && multiplicand_Entry.getNumber() != null) {
-			int multiplicand_One_Digit_Integer = Integer.parseInt(multiplicand_Entry.getNumber()); // ÇÇ½Â¼ö ÇÑ ÀÚ¸® ¹ŞÀ½
-			multiplicand_Entry = multiplicand_Entry.getNext(); // ÇÇ½Â¼ö ¿¬°á¸®½ºÆ® ÇÑ Ä­ ÀüÁø
+			int multiplicand_One_Digit_Integer = Integer.parseInt(multiplicand_Entry.getNumber()); // í”¼ìŠ¹ìˆ˜ í•œ ìë¦¬ ë°›ìŒ
+			multiplicand_Entry = multiplicand_Entry.getNext(); // í”¼ìŠ¹ìˆ˜ ì—°ê²°ë¦¬ìŠ¤íŠ¸ í•œ ì¹¸ ì „ì§„
 			int result_Of_Multiply_One_Digit = multiplicand_One_Digit_Integer * multiplier_One_Digit_Integer;
-			// ÇÇ½Â¼ö, ½Â¼ö °¢ ÇÑ ÀÚ¸®¿¡ ´ëÇÑ °ö¼À
-			multiply_One_Value = multiply_One_Carry; // ÀÌÀü Ä³¸®°ª ¹Ş¾Æ¿À±â
-			multiply_One_Carry = result_Of_Multiply_One_Digit / 10; // ÇÑ ÀÚ¸®¿¡ ´ëÇÑ °ö¼À°á°ú¿¡ ´ëÇØ carry°ª ÀúÀå
-			multiply_One_Value += result_Of_Multiply_One_Digit % 10; // ÇÑ ÀÚ¸®¿¡ ´ëÇÑ °ö¼À°á°ú¿¡ ´ëÇØ value°ª ÀúÀå(1ÀÇ ÀÚ¸®¼ö)
-			
-			if (multiply_One_Value > 9) { 
-				// ÀÌÀü Ä³¸®°ª°ú ÀÌ¹ø °ö¼À °á°úÀÇ 1ÀÇÀÚ¸® °ªÀ» ´õÇÑ °ªÀÌ 10À» ³Ñ¾î°¡´Â °æ¿ì carry°ª°ú value°ª ÀçÁ¶Á¤
+			// í”¼ìŠ¹ìˆ˜, ìŠ¹ìˆ˜ ê° í•œ ìë¦¬ì— ëŒ€í•œ ê³±ì…ˆ
+			multiply_One_Value = multiply_One_Carry; // ì´ì „ ìºë¦¬ê°’ ë°›ì•„ì˜¤ê¸°
+			multiply_One_Carry = result_Of_Multiply_One_Digit / 10; // í•œ ìë¦¬ì— ëŒ€í•œ ê³±ì…ˆê²°ê³¼ì— ëŒ€í•´ carryê°’ ì €ì¥
+			multiply_One_Value += result_Of_Multiply_One_Digit % 10; // í•œ ìë¦¬ì— ëŒ€í•œ ê³±ì…ˆê²°ê³¼ì— ëŒ€í•´ valueê°’ ì €ì¥(1ì˜ ìë¦¬ìˆ˜)
+
+			if (multiply_One_Value > 9) {
+				// ì´ì „ ìºë¦¬ê°’ê³¼ ì´ë²ˆ ê³±ì…ˆ ê²°ê³¼ì˜ 1ì˜ìë¦¬ ê°’ì„ ë”í•œ ê°’ì´ 10ì„ ë„˜ì–´ê°€ëŠ” ê²½ìš° carryê°’ê³¼ valueê°’ ì¬ì¡°ì •
 				multiply_One_Carry += multiply_One_Value / 10;
 				multiply_One_Value %= 10;
 			}
-			
-			
-		//	for(;multiply_One_Temp.getNext() != null; multiply_One_Temp = multiply_One_Temp.getNext());
-			
-			multiply_One_Temp.setNumber(Integer.toString(multiply_One_Value)); // 1ÀÇ ÀÚ¸®°ªÀ» ÀúÀå
+
+			multiply_One_Temp.setNumber(Integer.toString(multiply_One_Value)); // 1ì˜ ìë¦¬ê°’ì„ ì €ì¥
 			multiply_One_Temp.setNext(new Entry());
 			multiply_One_Temp = multiply_One_Temp.getNext();
 		}
-		
+
 		if(multiply_One_Carry != 0)
 			multiply_One_Temp.setNumber(Integer.toString(multiply_One_Carry));
-		
+
 		return multiply_One_Return;
 	}
-	
+
 	public String multiply(String multiplicand, String multiplier) {
 		BigInt bigint_Multiplicand = new BigInt(multiplicand);
 		if(!bigint_Multiplicand.isCheck_Init()) return null;
 		BigInt bigint_Multiplier = new BigInt(multiplier);
 		if(!bigint_Multiplier.isCheck_Init()) return null;
-		Entry multiply_One_Result = new Entry();
+		Entry multiply_One_Result = new Entry(); // ì¶œë ¥ë•Œ ì‚¬ìš©í•  Entry
+		Entry store_Temp = multiply_One_Result; // multiply_Oneì„ í•œ ì¹¸ì”© ì´ë™í•˜ë©´ì„œ ì €ì¥í•˜ê¸° ìœ„í•œ Entry
+		 // ì´ì–´ì„œ ìˆ«ìë¥¼ ë”í•´ê°€ê¸° ìœ„í•œ tempë³€ìˆ˜
 		String string_For_Return = new String();
-		//while (bigint_Multiplier.entry != null) {
-			multiply_One_Result = multiply_One(bigint_Multiplicand.entry, bigint_Multiplier.entry.getNumber());
-	//	}
+
+		while (bigint_Multiplier.entry != null && bigint_Multiplier.entry.getNumber() != null) {
+			Entry temp_Multiply_First = store_Temp;
+			Entry temp_Multiply_Second = multiply_One(bigint_Multiplicand.entry, bigint_Multiplier.entry.getNumber());
+			Entry changer_Location = temp_Multiply_First;
+			// multiply_One ê²°ê³¼ë¥¼ ë°›ì•„ì˜¨ tempë³€ìˆ˜
+			String previous_Number = new String();
+
+			int combination_Carry = 0; //
+			int combination_Value = 0;
+			int combination_Plus = 0;
+
+
+
+			while(temp_Multiply_Second != null && temp_Multiply_Second.getNumber() != null) {
+		/*		if(temp_Multiply_First != null && temp_Multiply_First.getNumber() != null)
+					combination_Plus = Integer.parseInt(temp_Multiply_Second.getNumber()) + Integer.parseInt(temp_Multiply_First.getNumber());
+				else
+					*/
+				int temp_Current_Number = 0;
+				if(temp_Multiply_First != null && temp_Multiply_First.getNumber() != null)
+					temp_Current_Number = Integer.parseInt(temp_Multiply_First.getNumber());
+				/*if(changer_Location != null && changer_Location.getNumber() != null)
+					temp_Current_Number = Integer.parseInt(changer_Location.getNumber());*/
+
+				combination_Plus = Integer.parseInt(temp_Multiply_Second.getNumber()) + temp_Current_Number;
+				combination_Value = combination_Carry; // ì´ì „ carryê°’
+				combination_Value += combination_Plus % 10; // ì´ë²ˆ ë§ì…ˆ ì—°ì‚° ê°’ì„ ë”í•¨
+				combination_Carry = combination_Plus / 10; // ë§ì…ˆì—ì„œ ë°œìƒí•œ carryì €ì¥
+
+				if(combination_Value > 9) { // valueê°€ 10ì´ìƒì¸ ê²½ìš° carryë° valueê°’ ì¬ì¡°ì •
+					combination_Carry += combination_Value / 10;
+					combination_Value %= 10;
+				}
+				// ê°’ì„ ì„¤ì •í•˜ê³  ë‹¤ìŒì¹¸ìœ¼ë¡œ ì „ì§„
+				temp_Multiply_First.setNumber(Integer.toString(combination_Value));
+				if(temp_Multiply_First.getNext() == null)
+						temp_Multiply_First.setNext(new Entry());
+
+				temp_Multiply_First = temp_Multiply_First.getNext();
+				temp_Multiply_Second = temp_Multiply_Second.getNext();
+			}
+
+			if(combination_Carry != 0) // ìºë¦¬ê°’ ìˆëŠ” ê²½ìš° ì €ì¥
+				temp_Multiply_First.setNumber(Integer.toString(combination_Carry));
+
+			// multiplier ë‹¤ìŒ ìë¦¬ìˆ˜ë¡œ ì´ë™
+			store_Temp = store_Temp.getNext();
+			bigint_Multiplier.entry = bigint_Multiplier.entry.getNext();
+		}
+
 		while(multiply_One_Result != null && multiply_One_Result.getNumber() != null) {
 			String temp_multiply_One_Result = multiply_One_Result.getNumber();
 			multiply_One_Result = multiply_One_Result.getNext();
 			string_For_Return = temp_multiply_One_Result + string_For_Return;
 		}
-		
+
 		return string_For_Return;
 	}
 }
